@@ -6,6 +6,10 @@ const MONTHLY_DAYS = 20 ;
 let game_result;
 let monthly_stake = 0;
 let monthly_investment = 0;
+let luckiest_count = 0;
+let unluckiest_count = 0;
+var luckiest_days = [];
+var unluckiest_days = [];
 function GamblingGame(){
     for( var day = 1 ; day <= MONTHLY_DAYS ; day++ ){
         game_result = STAKE_AMOUNT;
@@ -23,17 +27,27 @@ function GamblingGame(){
         switch(game_result){
             case ( STAKE_AMOUNT / 2 ) :
                 console.log(`Result of day ${day} is Gambler loss $${game_result}`);
+                unluckiest_days[++unluckiest_count] = day; 
                 break;
             default :
-            console.log(`Result of day ${day} is Gambler Won $${game_result}`);
-            break;
+                console.log(`Result of day ${day} is Gambler Won $${game_result}`);
+                luckiest_days[++luckiest_count] = day;
+                break;
         }
         monthly_investment = monthly_investment + STAKE_AMOUNT;
         monthly_stake = monthly_stake + game_result;
     }
+    process.stdout.write("Luckiest Days : ")
+    for(var count = 1 ; count < luckiest_days.length ; count++){
+        process.stdout.write(", "+luckiest_days[count]);
+    }
+    process.stdout.write("\nUnluckiest Days : ")
+    for(var count = 1 ; count < unluckiest_days.length ; count++){
+        process.stdout.write(", "+unluckiest_days[count]);
+    }
     if(monthly_stake > monthly_investment){
         var total = monthly_stake - monthly_investment ;
-        console.log(`Gambler Won $${total} in this month`)
+        console.log(`\n Gambler Won $${total} in this month`)
     }
     else{
         var total =  monthly_investment - monthly_stake ;
