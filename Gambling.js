@@ -6,6 +6,7 @@ const MONTHLY_DAYS = 20 ;
 let game_result;
 let monthly_stake = 0;
 let monthly_investment = 0;
+
 function GamblingGame(){
     for( var day = 1 ; day <= MONTHLY_DAYS ; day++ ){
         game_result = STAKE_AMOUNT;
