@@ -54,7 +54,6 @@ function GamblingGame(){
         var total =  monthly_investment - monthly_stake ;
         console.log(`\n Gambler Loss $${ total } in this month`) 
     }
-
     var prompt = require('prompt-sync')();
     if(monthly_stake > monthly_investment){
        var user_decide = prompt('Press 1 to continue game : ')
