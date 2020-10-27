@@ -12,10 +12,10 @@ function GamblingGame(){
             var game_check = Math.floor( Math.random() * 2 );
             switch(game_check){
                 case BETTING_AMOUNT :
-                    game_result = game_result + BETTING_AMOUNT ;
+                    game_result = game_result + BETTING_AMOUNT;
                     break;
                 default :
-                    game_result = game_result - BETTING_AMOUNT ;
+                    game_result = game_result - BETTING_AMOUNT;
                     break;
             }
         }
